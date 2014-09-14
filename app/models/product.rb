@@ -6,7 +6,8 @@ class Product < ActiveRecord::Base
   validates :price, numericality: { greater_than_or_equal_to: 0 }
 
   def self.incredible
-    where("name like 'Incredible%'")
+    # ILIKE means 'case-insensitive like'
+    where("name ILIKE '%incredible%'")
   end
 
   def self.cheap
